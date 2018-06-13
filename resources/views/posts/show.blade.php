@@ -157,6 +157,7 @@
                                 <a href="/user/{{$comment->user->nickname}}">
                                     {{ $comment->user->name . ' ' . $comment->user->surname . ' (' .$comment->user->nickname . ')'}}
                                 </a>
+                                <?php setlocale(LC_TIME, 'lt_LT.ISO-8859-13'); ?>
                                 <i> {{ iconv("ISO-8859-13","utf-8",strftime("%Y %B %d (%H:%M)",strtotime($comment->created_at))) }} </i>
                             </h6>
                             <div class="comment-body " >

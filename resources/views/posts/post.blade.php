@@ -70,6 +70,7 @@
                             <button type="button" class="btn btn-sm btn-outline-secondary">Peržiūrėti</button>
                         </a>
                     </div>
+                    <?php setlocale(LC_TIME, 'lt_LT.ISO-8859-13'); ?>
                     <small class="text-muted"><a href="/user/{{ $post->user->nickname }}">{{ $post->user->nickname }}</a> | {{ iconv("ISO-8859-13","utf-8",strftime("%Y-%b-%d %H:%M",strtotime($post->created_at))) }}</small>
                 </div>
             </div>

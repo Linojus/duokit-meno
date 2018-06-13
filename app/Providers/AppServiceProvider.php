@@ -16,6 +16,7 @@ class AppServiceProvider extends ServiceProvider
     {
         // config/app ir tada locale
         \Carbon\Carbon::setLocale(config('app.locale'));
+        setlocale(LC_TIME, 'lt_LT.ISO-8859-13');
 
         Schema::defaultStringLength(191);
         view()->composer('layouts.sidebar', function($view) {
@@ -38,6 +39,7 @@ class AppServiceProvider extends ServiceProvider
     {
         setlocale(LC_TIME, config('app.locale'));
         //setlocale(LC_TIME, config('lt_LT'));
+        setlocale(LC_TIME, 'lt_LT.ISO-8859-13');
         define('CHARSET', 'ISO-8859-13');
         //\Carbon\Carbon::setUtf8(false);
 
