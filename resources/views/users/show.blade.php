@@ -57,7 +57,6 @@
 
             @if(count($posts))
 
-                <h4>Vartotojo skelbimai ({{ count($posts) }}):</h4>
                 <hr>
 
                 <div class="album py-0 bg-light">

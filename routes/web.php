@@ -37,7 +37,10 @@ Route::post('/posts/{post}/vote', 'VoteController@store');
 Route::post('/posts/{post}/upvote', 'VoteController@upVote');
 Route::post('/posts/{post}/downvote', 'VoteController@downVote');
 
-
+// saved posts
+Route::get('/user/{nickname}/saved', 'SavedController@index');
+Route::post('/user/{post}/saved', 'SavedController@store');
+Route::delete('/user/{post}/saved', 'SavedController@destroy');
 
 
 //users

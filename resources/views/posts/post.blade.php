@@ -4,7 +4,7 @@
 <div class="col-md-6">
     <div class="card mb-4 box-shadow">
 
-        <img class="card-img-top" src="{{ asset('storage/'.$post->mainImage->filename) }}" style="max-width:100%" alt="Paveikslėlis">
+        <img class="card-img-top " src="{{ asset('storage/'.$post->mainImage->filename) }}" style="max-width:100%" alt="Paveikslėlis">
 
         <div class="card-body" style="padding: 0">
 

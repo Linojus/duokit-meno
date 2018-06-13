@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Image;
 use App\PostType;
+use App\Saved;
 use App\Vote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -94,15 +95,22 @@ class PostController extends Controller
         $post = Post::find($id);
 
         $userVote = 0;
+        $userSaved = 0;
 
         if(auth()->id()) {
 
             $userVote = Vote::select('upvote')
                 ->where('user_id', auth()->id())
                 ->where('post_id', $post->id)->first();
+
+            $userSaved = Saved::select()
+                ->where('user_id', auth()->id())
+                ->where('post_id', $post->id)->exists();
         }
 
-        return view('posts.show', compact('post', 'userVote'));
+        //dd($userSaved);
+
+        return view('posts.show', compact('post', 'userVote', 'userSaved'));
     }
     /*
      * kitas variantas

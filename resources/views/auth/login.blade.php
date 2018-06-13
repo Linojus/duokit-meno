@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <div class="col-sm-8 blog-main">
+    <div class="col-sm-9 blog-main">
         <div ><!--class="row justify-content-center" -->
             <div> <!-- class="col-md-8" -->
                 <div class="card">

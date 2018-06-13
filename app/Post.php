@@ -14,6 +14,13 @@ class Post extends Model
     //tai ko neleidziame
     //protected $guarded = ['user_id'];
 
+    public function saveds()
+    {
+        //return $this->hasMany(Saved::class);
+
+        return $this->belongsToMany('App\User', 'saveds', 'post_id', 'user_id');
+    }
+
     public function comments()
     {
         return $this->hasMany(Comment::class)->orderBy('created_at', 'desc');

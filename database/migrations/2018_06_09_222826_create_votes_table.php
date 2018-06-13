@@ -21,7 +21,7 @@ class CreateVotesTable extends Migration
 
             $table->integer('user_id');
             $table->integer('post_id');
-            $table->primary('user_id', 'post_id');
+            $table->primary(['user_id', 'post_id']);
 
             $table->boolean('upvote')->nullable();
 

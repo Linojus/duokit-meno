@@ -34,6 +34,17 @@ class User extends Authenticatable
     }
 */
 
+    public function saveds()
+    {
+        //return $this->hasMany(Post::class)->as('saveds')->withTimestamps();
+
+        return $this->belongsToMany('App\Post', 'saveds', 'user_id', 'post_id');
+
+
+     //   return $this->hasMany(Post::class)->with('saveds');
+
+    }
+
     public function posts()
     {
         return $this->hasMany(Post::class);

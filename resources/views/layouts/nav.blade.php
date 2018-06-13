@@ -8,12 +8,13 @@
             <a class="nav-link" href="#">Press</a>
             <a class="nav-link" href="#">New hires</a>
             -->
-            <a class="nav-link mr-auto" href="{{ route('about') }}">Apie</a>
+            <a class="nav-link ml" href="{{ route('about') }}">Apie</a>
 
             @if (Route::has('login'))
 
                     @auth
-                        <a class="nav-link" href="{{ url('/posts/create') }}">Kurti skelbimą</a>
+                    <a class="nav-link mr-auto" href="{{ url('/posts/create') }}"><strong>Kurti skelbimą</strong></a>
+                        <a class="nav-link ml" href="{{ url('/user/'.Auth::User()->nickname.'/saved') }}">Išsaugoti skelbimai</a>
                         <a class="nav-link ml" href="{{ url('/home') }}">Mano paskyra</a>
                         <a class="nav-link ml" href="{{ route('logout') }}">Atsijungti</a>
                     @else

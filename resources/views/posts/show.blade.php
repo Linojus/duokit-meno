@@ -26,7 +26,7 @@
 
         <hr>
 
-        <img src="{{ asset('storage/'.$post->mainImage->filename) }}" width="100%" />
+        <img class="img-thumbnail" src="{{ asset('storage/'.$post->mainImage->filename) }}" width="100%" />
 
         <small class="text-muted">Skelbia: <a href="/user/{{ $post->user->nickname }}">{{ $post->user->nickname }}</a></small>
         <hr>
@@ -61,42 +61,87 @@
 
         <hr>
 
-        Reitingas:
-        <?php  /* var_dump($weed = $post->userUpVotes->pluck('total','upvote')->toArray())*/?>
+        <div>
 
-        {{ $post->userVotes->count() }}
+            Reitingas:
+            <?php  /* var_dump($weed = $post->userUpVotes->pluck('total','upvote')->toArray())*/?>
+            {{ $post->userVotes->count() }}
 
-        @if( empty($userVote) || $userVote->upvote == 0)
-            <form method="POST" action="/posts/{{ $post->id }}/upvote">
+        </div>
 
-                {{ csrf_field() }}
+        <div class="row">
+            <div class="col">
 
-                <div class="form-group">
+                @if( empty($userVote) || $userVote->upvote == 0)
+                    <form method="POST" action="/posts/{{ $post->id }}/upvote">
 
-                    <input type="hidden" id="vote" name="vote" value="1">
+                        {{ csrf_field() }}
 
-                    <button type="submit" class="btn btn-primary">Patinka</button>
+                        <div class="form-group">
 
-                </div>
+                            <input type="hidden" id="vote" name="vote" value="1">
 
-            </form>
+                            <button type="submit" class="btn btn-outline-success">Patinka</button>
 
-        @else
-            <form method="POST" action="/posts/{{ $post->id }}/downvote">
+                        </div>
 
-                {{ csrf_field() }}
+                    </form>
 
-                <div class="form-group">
+                @else
+                    <form method="POST" action="/posts/{{ $post->id }}/downvote">
 
-                    <input type="hidden" id="vote" name="vote" value="0">
+                        {{ csrf_field() }}
 
-                    <button type="submit" class="btn btn-outline-primary">Nepatinka</button>
+                        <div class="form-group">
 
-                </div>
+                            <input type="hidden" id="vote" name="vote" value="0">
 
-            </form>
-        @endif
+                            <button type="submit" class="btn btn-outline-danger">Nepatinka</button>
 
+                        </div>
+
+                    </form>
+                @endif
+
+            </div>
+
+            <div class="col ml-auto">
+                @if( empty($userSaved) || $userSaved == false)
+
+
+                    <form method="POST" action="/user/{{ $post->id }}/saved">
+
+                        {{ csrf_field() }}
+
+                        <div class="form-group">
+
+                            <button type="submit" class="btn btn-outline-info">Išsisaugoti</button>
+
+                        </div>
+
+                    </form>
+
+
+                @else
+
+                    <form method="POST" action="/user/{{ $post->id }}/saved">
+
+                        {{ method_field('DELETE') }}
+
+                        {{ csrf_field() }}
+
+                        <div class="form-group">
+
+                            <button type="submit" class="btn btn-outline-warning">Pamiršti</button>
+
+                        </div>
+
+                    </form>
+
+                @endif
+            </div>
+
+        </div>
 
         <hr>
 

@@ -62,6 +62,9 @@
         </div>
 
 
+        <div class="blog-post">
+            <h3><a href="/user/{{ Auth::User()->nickname }}/saved">Mano išsaugoti skelbimai</a></h3>
+        </div>
 
         <div class="blog-post">
 
