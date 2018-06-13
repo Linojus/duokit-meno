@@ -49,7 +49,9 @@ class UserController extends Controller
        // $user = User::find($nickname);
         $user = User::where('nickname', $nickname)->first();
 
-        return view('users.show', compact('user'));
+        $posts = $user->posts()->paginate(8);
+
+        return view('users.show', compact('user', 'posts'));
     }
 
     /**

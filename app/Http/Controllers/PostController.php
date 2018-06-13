@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Image;
 use App\PostType;
+use App\Vote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -36,6 +37,13 @@ class PostController extends Controller
         $posts = Post::latest();
 
 
+        if($user = request('user')) {
+
+            //$posts =
+
+
+        }
+
 
         if($category = request('category'))
         {
@@ -65,7 +73,7 @@ class PostController extends Controller
             $posts->whereYear('created_at', $year);
         }
 
-        $posts = $posts->paginate(2);
+        $posts = $posts->paginate(8);
         //$posts = $posts->get();
 
         // $archives = Post::archives();
@@ -85,7 +93,16 @@ class PostController extends Controller
     {
         $post = Post::find($id);
 
-        return view('posts.show', compact('post'));
+        $userVote = 0;
+
+        if(auth()->id()) {
+
+            $userVote = Vote::select('upvote')
+                ->where('user_id', auth()->id())
+                ->where('post_id', $post->id)->first();
+        }
+
+        return view('posts.show', compact('post', 'userVote'));
     }
     /*
      * kitas variantas

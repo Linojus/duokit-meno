@@ -2,6 +2,7 @@
     <p>
         <a href="#">Į viršų</a>
     </p>
+    <p>Linas Juodvalkis, 2018</p>
     <p>Blog template built for <a href="https://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
 
 </footer>

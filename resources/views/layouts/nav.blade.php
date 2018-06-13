@@ -2,11 +2,13 @@
 <div class="blog-masthead">
     <div class="container">
         <nav class="nav blog-nav">
-            <a class="nav-link active" href="/">Pagrindinis</a>
-            <a class="nav-link" href="#">New features</a>
+            <a class="nav-link" href="/">Pagrindinis</a>
+            <!--
+            <a class="nav-link active" href="#">New features</a>
             <a class="nav-link" href="#">Press</a>
             <a class="nav-link" href="#">New hires</a>
-            <a class="nav-link ml-auto" href="{{ route('about') }}">Apie</a>
+            -->
+            <a class="nav-link mr-auto" href="{{ route('about') }}">Apie</a>
 
             @if (Route::has('login'))
 
@@ -38,7 +40,7 @@
 
 <div class="blog-header">
     <div class="container">
-        <h1 class="blog-title">The Bootstrap Blog</h1>
-        <p class="lead blog-description">An example blog template built with Bootstrap.</p>
+        <h1 class="blog-title">Duokit meno</h1>
+        <p class="lead blog-description">Čia rasite patį šviežiausią <strong>vietinį</strong> meną.</p>
     </div>
 </div>

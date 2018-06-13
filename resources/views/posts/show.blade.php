@@ -9,7 +9,6 @@
             {{ $post->title }}
         </h1>
 
-
         @if(count($post->tags))
             <div>
                 <small>
@@ -29,7 +28,9 @@
 
         <img src="{{ asset('storage/'.$post->mainImage->filename) }}" width="100%" />
 
+        <small class="text-muted">Skelbia: <a href="/user/{{ $post->user->nickname }}">{{ $post->user->nickname }}</a></small>
         <hr>
+
         <h4>Aprašymas</h4>
         <div>
             {{ $post->body }}
@@ -37,16 +38,68 @@
 
         <hr>
 
-        @if($post->forSale == true)
-            <h5 style="color:green">Parduodamas</h5>
-        @else
-            <h5 style="color:orangered">Neparduodamas</h5>
-        @endif
 
-        <?php setlocale(LC_MONETARY, 'lt_LT');   ?>
-        Kaina: {{  number_format($post->price, 2, ',', '.') }}€
+        <div class="row">
+
+            <div class="col">
+                @if($post->forSale == true)
+                    <h5 style="color:green">Parduodamas</h5>
+                @else
+                    <h5 style="color:orangered">Neparduodamas</h5>
+                @endif
+
+            </div>
+
+            <div class="col">
+
+                <?php setlocale(LC_MONETARY, 'lt_LT');   ?>
+                Kaina: {{  number_format($post->price, 2, ',', '.') }}€
+
+            </div>
+
+        </div>
 
         <hr>
+
+        Reitingas:
+        <?php  /* var_dump($weed = $post->userUpVotes->pluck('total','upvote')->toArray())*/?>
+
+        {{ $post->userVotes->count() }}
+
+        @if( empty($userVote) || $userVote->upvote == 0)
+            <form method="POST" action="/posts/{{ $post->id }}/upvote">
+
+                {{ csrf_field() }}
+
+                <div class="form-group">
+
+                    <input type="hidden" id="vote" name="vote" value="1">
+
+                    <button type="submit" class="btn btn-primary">Patinka</button>
+
+                </div>
+
+            </form>
+
+        @else
+            <form method="POST" action="/posts/{{ $post->id }}/downvote">
+
+                {{ csrf_field() }}
+
+                <div class="form-group">
+
+                    <input type="hidden" id="vote" name="vote" value="0">
+
+                    <button type="submit" class="btn btn-outline-primary">Nepatinka</button>
+
+                </div>
+
+            </form>
+        @endif
+
+
+        <hr>
+
 
         <ul class="list-group">
             <div class="comments" style="word-wrap: break-word;" id="comments">
@@ -61,11 +114,8 @@
                                 </a>
                                 <i> {{ iconv("ISO-8859-13","utf-8",strftime("%Y %B %d (%H:%M)",strtotime($comment->created_at))) }} </i>
                             </h6>
-                            <div class="comment-body" >
-                                <p>
-                                    {{ $comment->body }}
-
-                                </p>
+                            <div class="comment-body " >
+                                {{ $comment->body }}
                             </div>
                         </div>
                         <!-- </div> -->
@@ -76,13 +126,19 @@
 
         <hr>
 
-        <div class="card">
+
+
+
+
+
+        <div class="">
 
             <div class="card-block">
 
                 <form method="POST" action="/posts/{{ $post->id }}/comments">
 
                     {{ csrf_field() }}
+
 
                     <div class="form-group">
 

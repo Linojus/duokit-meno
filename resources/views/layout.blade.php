@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Lietuviškas meno skelbimų portalas">
     <meta name="author" content="Linas Juodvalkis">
-    <link rel="icon" href="../../favicon.ico">
+
+    <link rel="shortcut icon" href="{{{ asset('favicon.png') }}}" type="image/x-icon">
+    <link rel="icon" href="{{{ asset('favicon.png') }}}" type="image/x-icon">
+
 
     <title>Duokit meno</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/blog/">

@@ -31,8 +31,20 @@
             </div>
 
             <div class="card-footer" style="text-align: center">
-                <a href="/?post-type={{ $post->postType->name }}">{{ $post->postType->name }}</a> |
-                <a href="/posts/categories/{{ $post->category['name'] }}">{{ $post->category['name']}}</a>
+                <div class="row">
+
+                    <div class="col-md-auto">
+                        <a href="/?post-type={{ $post->postType->name }}">{{ $post->postType->name }}</a> |
+
+                        <a href="/posts/categories/{{ $post->category['name'] }}">{{ $post->category['name']}}</a>
+                    </div>
+
+                    <div class="col">
+                        Reitingas: {{ $post->userVotes->count() }}
+                    </div>
+
+
+                </div>
             </div>
 
 

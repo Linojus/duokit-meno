@@ -15,7 +15,7 @@
 
         </ol>
     </div>
-    
+
     <div class="sidebar-module">
         <h4>Skelbimai pagal kategoriją</h4>
         <ol class="list-unstyled">
@@ -59,16 +59,14 @@
 
 
     <div class="sidebar-module">
-        <h4>Tags</h4>
+        <h4>Žymės</h4>
         <ol class="list-unstyled">
 
             @foreach($tags as $tag)
 
-                <li>
                     <a href="/posts/tags/{{ $tag }}">
-                        {{ $tag }}
+                        #{{ $tag }}
                     </a>
-                </li>
 
             @endforeach
 
@@ -76,12 +74,12 @@
     </div>
 
 
-
+<!--
     <div class="sidebar-module sidebar-module-inset">
         <h4>About</h4>
         <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
     </div>
-
+-->
     <!--
     <div class="sidebar-module">
         <h4>Elsewhere</h4>

@@ -32,6 +32,14 @@ Route::get('/posts/categories/{category}', 'CategoryController@index');
 
 Route::post('/posts/{post}/comments', 'CommentController@store');
 
+Route::post('/posts/{post}/vote', 'VoteController@store');
+
+Route::post('/posts/{post}/upvote', 'VoteController@upVote');
+Route::post('/posts/{post}/downvote', 'VoteController@downVote');
+
+
+
+
 //users
 Route::get('/user/{nickname}', 'UserController@show');
 

@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Support\Facades\DB;
+
 class Post extends Model
 {
     //tai ka leidziame
@@ -31,6 +33,27 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function userVote()
+    {
+        $id = auth()->id();
+        return $this->hasOne(Vote::class)->where('user_id', $id);
+    }
+
+    public function  userVotes()
+    {
+        return $this->hasMany(Vote::class)->where('upvote', '=' , 1 );
+    }
+
+    public function  userUpVotes()
+    {
+        return $this->hasMany(Vote::class)->where('upvote', '=' , 1 )
+            ->select('upvote', DB::raw('count(*) as total'))
+            ->groupBy('upvote');
+    }
+
+
+
 
     public function addComment($body)
     {

@@ -9,8 +9,17 @@
                 Apie
             </h2>
 
-            Sveiki atvykę į šį lietuviško meno skelbimų portalą
+            <p>
+                Sveiki atvykę į šį lietuviško meno skelbimų portalą.
+            </p>
 
+            <p>
+                Čia galite rastį įvaraus vietinio meno skelbimų, iš naujų, kylančių bei įsitvirtinusių Lietuvos menininkų
+            </p>
+
+            <p>
+                Jei esate menininkas - ši svetainė yra puiki erdvė reklamuoti savo kūrinius bei teikiamas paslaugas
+            </p>
 
         </div><!-- /.blog-post -->
     </div>
