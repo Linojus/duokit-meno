@@ -7,6 +7,7 @@ use App\Image;
 use App\PostType;
 use App\Saved;
 use App\Vote;
+use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -153,13 +154,21 @@ class PostController extends Controller
 
         $post = $this->createPost($values);
 
+
+
         if((!is_null($tags)) && !(empty($tags)))
         {
             foreach ($tagss as $tag)
             {
-                $post->tags()->firstOrCreate($tag);
+
+                $tagObj = Tag::firstOrCreate(array('name' => $tag['name']));
+                //dd($tagObj->id);
+                $post->tags()->attach($tagObj->id);
             }
         }
+
+
+        //$post->tag($tags);
 
         //$image = $this->createImage($post);
 
