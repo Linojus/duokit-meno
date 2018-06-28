@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
     public function index(Category $category)
     {
-        $posts = $category->posts;
+        $posts = $category->posts()->paginate(8);
 
         //dd($posts);
 
