@@ -19,11 +19,23 @@
 
                     <div class="row">
 
-                        @foreach($posts as $post)
-                            @if($post->disabled == false)
-                                @include('posts.post')
-                            @endif()
-                        @endforeach
+
+                        @if(auth()->user() && Auth::user()->role->name == "Administratorius")
+
+                                @foreach($posts as $post)
+                                    @include('posts.post')
+                                @endforeach
+
+                        @else
+
+                            @foreach($posts as $post)
+                                @if($post->disabled == false)
+                                    @include('posts.post')
+                                @endif()
+                            @endforeach
+
+                        @endif
+
 
                     </div>
                     <!-- </div> -->

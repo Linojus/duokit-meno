@@ -12,7 +12,7 @@
 
                 <div class="form-group">
 
-                    <button type="submit" class="btn btn-success">Enable</button>
+                    <button type="submit" class="btn btn-success">Rodyti skelbimą</button>
 
                 </div>
 
@@ -26,7 +26,7 @@
 
                 <div class="form-group">
 
-                    <button type="submit" class="btn btn-danger">Disable</button>
+                    <button type="submit" class="btn btn-danger">Paslėpti skelbimą</button>
 
                 </div>
 
