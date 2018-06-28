@@ -9,6 +9,8 @@
             {{ $post->title }}
         </h1>
 
+        @include('posts.disable')
+
         @if(count($post->tags))
             <div>
                 <small>

@@ -8,9 +8,9 @@
         <div class="blog-post">
 
 
-            @if(count($posts))
+        @if(count($posts))
 
-<!--
+            <!--
                 <h4>Skelbimų skaičius: {{ count($posts) }}</h4>
                 <hr>
 -->
@@ -20,7 +20,9 @@
                     <div class="row">
 
                         @foreach($posts as $post)
-                            @include('posts.post')
+                            @if($post->disabled == false)
+                                @include('posts.post')
+                            @endif()
                         @endforeach
 
                     </div>

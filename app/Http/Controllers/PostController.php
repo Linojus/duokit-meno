@@ -121,6 +121,45 @@ class PostController extends Controller
         }
     */
 
+    public function disable($id) {
+
+        if (auth()->user()) {
+
+            $post = Post::find($id);
+
+            if(!is_null($post)) {
+                $post->disabled = true;
+                $post->save();
+            }
+
+            return back();
+        } else {
+
+            return redirect()->route('login');;
+        }
+
+    }
+
+    public function enable($id) {
+
+        if (auth()->user()) {
+
+            $post = Post::find($id);
+
+            if(!is_null($post)) {
+                $post->disabled = false;
+                $post->save();
+            }
+
+            return back();
+        } else {
+
+            return redirect()->route('login');;
+        }
+
+    }
+
+
 
     public function store()
     {
