@@ -31,6 +31,7 @@ Route::get('/posts/categories/{category}', 'CategoryController@index');
 
 
 Route::post('/posts/{post}/comments', 'CommentController@store');
+Route::delete('/posts/{post}/comments/{comment}', 'CommentController@destroy');
 
 Route::post('/posts/{post}/vote', 'VoteController@store');
 

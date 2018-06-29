@@ -152,22 +152,7 @@
             <div class="comments" style="word-wrap: break-word;" id="comments">
                 <h3 class="mb-2">Komentarai</h3>
                 @foreach($post->comments as $comment)
-                    <li class="list-group-item">
-                        <!-- <div class="comment mb-2 col-sm-1 row"> -->
-                        <div class="comment-content col-md-11 col-sm-8">
-                            <h6 class="small comment-meta">
-                                <a href="/user/{{$comment->user->nickname}}">
-                                    {{ $comment->user->name . ' ' . $comment->user->surname . ' (' .$comment->user->nickname . ')'}}
-                                </a>
-                                <?php setlocale(LC_TIME, 'lt_LT.ISO-8859-13'); ?>
-                                <i> {{ iconv("ISO-8859-13","utf-8",strftime("%Y %B %d (%H:%M)",strtotime($comment->created_at))) }} </i>
-                            </h6>
-                            <div class="comment-body " >
-                                {{ $comment->body }}
-                            </div>
-                        </div>
-                        <!-- </div> -->
-                    </li>
+                    @include('posts.comment')
                 @endforeach
             </div>
         </ul>
